@@ -55,7 +55,16 @@
 
   let favorites = readJSON(STORAGE.favorites, []);
   let cart = readJSON(STORAGE.cart, {});
-  let activeCategory = 'All';
+
+  cart = Object.fromEntries(
+    Object.entries(cart).filter(([id, quantity]) =>
+      products.some(p => p.id === id) &&
+      Number.isFinite(Number(quantity)) &&
+      Number(quantity) > 0
+    ).map(([id, quantity]) => [id, Number(quantity)])
+  );
+
+  saveJSON(STORAGE.cart, cart); let activeCategory = 'All';
   let searchTerm = '';
   let sortMode = 'featured';
   let adminMode = false;
@@ -150,15 +159,15 @@
       const currentCategories = ['All', ...new Set(products.map(p => p.category).filter(Boolean))];
       if (!currentCategories.includes(activeCategory)) activeCategory = 'All';
       currentCategories.forEach(category => {
-      const button = document.createElement('button');
-      button.type = 'button'; button.className = 'ee-chip' + (category === activeCategory ? ' is-active' : '');
-      button.textContent = category;
-      button.addEventListener('click', () => {
-        activeCategory = category;
-        chips.querySelectorAll('.ee-chip').forEach(chip => chip.classList.toggle('is-active', chip === button));
-        applyCatalog();
-      });
-      chips.appendChild(button);
+        const button = document.createElement('button');
+        button.type = 'button'; button.className = 'ee-chip' + (category === activeCategory ? ' is-active' : '');
+        button.textContent = category;
+        button.addEventListener('click', () => {
+          activeCategory = category;
+          chips.querySelectorAll('.ee-chip').forEach(chip => chip.classList.toggle('is-active', chip === button));
+          applyCatalog();
+        });
+        chips.appendChild(button);
       });
     }
     renderCategoryChips();
@@ -239,7 +248,7 @@
   const drawer = document.createElement('aside');
   drawer.className = 'ee-drawer';
   drawer.setAttribute('aria-label', 'Shopping cart');
-  drawer.innerHTML = `<div class="ee-drawer-backdrop"></div><div class="ee-drawer-panel"><div class="ee-drawer-head"><div><span class="ee-kicker">YOUR SELECTION</span><h2 class="ee-drawer-title">Your cart</h2></div><button class="ee-drawer-close" type="button" aria-label="Close panel">&times;</button></div><div class="ee-drawer-items"></div><div class="ee-drawer-footer"><div class="ee-drawer-total"><span>Total items</span><strong class="ee-drawer-count">0</strong></div><button class="ee-copy-order" type="button"><i class="fa-regular fa-copy"></i> Copy order summary</button><button class="ee-whatsapp-order" type="button"><i class="fa-brands fa-whatsapp"></i> Send via WhatsApp</button><button class="ee-clear-cart" type="button">Clear cart</button><p>Prices and availability are confirmed by the store.</p></div></div>`;
+  drawer.innerHTML = `<div class="ee-drawer-backdrop"></div><div class="ee-drawer-panel"><div class="ee-drawer-head"><div><span class="ee-kicker">YOUR SELECTION</span><h2 class="ee-drawer-title">Your cart</h2></div><button class="ee-drawer-close" type="button" aria-label="Close panel">&times;</button></div><div class="ee-drawer-items"></div><div class="ee-drawer-footer"><div class="ee-drawer-total"><span>Total items</span><strong class="ee-drawer-count">0</strong></div><button class="ee-copy-order" type="button"><i class="fa-regular fa-copy"></i> Copy order summary</button><button class="ee-whatsapp-order" type="button"><i class="fa-brands fa-whatsapp"></i> ارسال الطلب عبر الواتساب</button><button class="ee-clear-cart" type="button">Clear cart</button><p>Prices and availability are confirmed by the store.</p></div></div>`;
   document.body.appendChild(drawer);
 
   const favoritesPanel = document.createElement('aside');
@@ -250,7 +259,7 @@
   /* FUNCTION updateCounts: دالة مسؤولة عن الجزء الموضح باسمها؛ راجع محتواها قبل تعديل السلوك. */
 
   function updateCounts() {
-    const count = Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
+    const count = Object.values(cart).reduce((sum, quantity) => sum + Number(quantity), 0);
     document.querySelectorAll('.ee-cart-count').forEach(el => el.textContent = count);
     document.querySelectorAll('.ee-wishlist-count').forEach(el => el.textContent = favorites.length);
     renderDrawer(); renderWishlist();
@@ -306,7 +315,17 @@
     const lines = products.filter(p => cart[p.id]).map(p => `${p.name} × ${cart[p.id]} — ${p.price}`);
     if (!lines.length) return notify('Your cart is empty');
     if (!number) return notify('Add your WhatsApp number in js/store-config.js first');
-    const message = `Hello Esam Electric, I would like to ask about:\n${lines.join('\n')}\nPlease confirm availability and final prices.`;
+    const message = `مرحباً Esam Electric 👋
+
+أرغب في الاستفسار عن المنتجات التالية:
+
+${products.filter(p => cart[p.id]).map(p => `اسم المنتج = ${p.name}
+العدد = ${cart[p.id]}`).join('\n\n')}
+
+من فضلكم تأكدوا من توافر المنتجات والأسعار النهائية.
+
+شكراً لكم ❤️`;
+
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
   });
   drawer.querySelector('.ee-clear-cart').addEventListener('click', () => { cart = {}; saveJSON(STORAGE.cart, cart); updateCounts(); notify('Cart cleared'); });
