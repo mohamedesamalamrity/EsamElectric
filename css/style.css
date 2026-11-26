@@ -1,0 +1,624 @@
+/* PROJECT STYLE GUIDE
+   ملف التنسيقات الرئيسي للموقع.
+   - ألوان وخطوط عامة: ابحث عن :root و body.
+   - كل مجموعة selectors تالية تنسق الجزء الموضح في التعليق السابق لها.
+   - تعديلات المقاسات والشاشات المختلفة موجودة داخل قواعد @media في نهاية الملف غالباً.
+   - اترك ملفات Bootstrap كما هي، وضع تعديلات المشروع هنا لتسهيل صيانتها.
+*/
+
+.electric
+{
+   
+    color: gold;
+}
+.body
+{
+    height: 1000vh;
+}
+/* NAVBAR: تنسيق شريط التنقل والقائمة */
+.navbar
+{
+    background-color: rgb(243, 230, 155);
+    padding: 12px 0;
+}
+.navbar .container-fluid {
+    align-items: center;
+}
+.navbar h1 {
+    margin-bottom: 0;
+}
+
+.hero-brand .power {
+    color: gold;
+}
+
+.hero-brand h1 {
+    color: rgb(77, 69, 24);
+    font-size: 2rem;
+    font-weight: 700;
+}
+.navbar .nav-item .nav-link
+{
+    color:rgb(77, 69, 24);
+    
+}
+.navbar .nav-item .nav-link:focus,
+.navbar .nav-item .nav-link:hover
+{
+    color: goldenrod;
+   
+}
+.power
+{
+    color: gold;
+}
+.searchicon
+{
+    color:  rgb(77, 69, 24);;
+}
+.btn
+{
+    background-color: gold;
+    color: rgb(77, 69, 24);
+}
+.section1
+{
+    height: 400px;
+    background-color:#e9ecef;
+}
+/* HERO: واجهة الترحيب الرئيسية */
+.samartHome
+{
+    
+}
+.main-title::after{
+content: ' ';
+width: 120px;
+height: 2px;
+background-color: gold;
+position: absolute;
+bottom: -20px;
+left:50%;
+transform: translateX(-50%);
+}
+.section3 .icon-holder {
+    height: 200px;
+}
+
+.section3 .icon-holder .number,
+.section3 .icon-holder .icon {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section3 .icon-holder .number {
+    font-size: 12rem;
+    color: #eff7fa;
+    z-index: 1;
+}
+
+.section3 .icon-holder .icon {
+    z-index: 2;
+    color: gold;
+}
+.section3 h4{
+    color: gold;
+}
+.work
+{
+    background-color:whitesmoke;
+}
+.work ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.work ul li a:hover,
+.work ul li a:focus {
+    background-color: gold;
+    color: black;
+}
+.work .box
+{
+    padding: 5px;
+    overflow: hidden;
+    position: relative;
+    
+}
+.work .box img {
+    width: 50%;
+    height: auto;
+}
+.work .box::before
+{
+    content: attr(data-work);
+    position: absolute;
+    width: calc(100% - 10px);
+    height:calc(100% - 10px) ;
+    background-color:rgba(255, 217, 0, 0.608) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    transform:translateX(calc(-100% - 5px)) ;
+}
+.work .box:hover::before
+{
+    transform:translateX(0) ;
+}
+.readMore .btn
+{
+    width: 200px;
+}
+.stuff .description
+{
+max-width: 500px;
+}
+/* OUR TEAM: قسم فريق العمل وكروت الأعضاء */
+.ourTeam {
+    background: linear-gradient(180deg, #f7f8fa 0%, #e9ecef 100%);
+}
+.team-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #9a7b00;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.ourTeam h2 { color: #292929; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+.team-intro { max-width: 620px; margin-left: auto; margin-right: auto; }
+/* TEAM CARD: تفاصيل بطاقة كل عضو في الفريق */
+.team-card {
+    overflow: hidden;
+    height: 100%;
+    background: #fff;
+    border: 1px solid rgba(77, 69, 24, .10);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(20, 25, 35, .08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.team-card:hover { transform: translateY(-6px); box-shadow: 0 18px 42px rgba(20, 25, 35, .13); }
+.team-photo-wrap { height: 230px; display: flex; align-items: center; justify-content: center; padding: 22px 22px 0; background: linear-gradient(135deg, #fff8d8, #f1f3f5); }
+.team-photo { width: 178px; height: 178px; object-fit: cover; object-position: center top; border: 6px solid #fff; border-radius: 50%; box-shadow: 0 6px 22px rgba(0,0,0,.12); }
+.team-card-body { padding: 24px 24px 28px; }
+.team-role { display: inline-block; margin-bottom: 10px; color: #9a7b00; font-size: .68rem; font-weight: 800; letter-spacing: 1.3px; }
+.team-card h3 { margin: 0 0 10px; color: #252525; font-size: 1.45rem; font-weight: 750; }
+.team-card p { min-height: 48px; margin: 0 auto 20px; color: #747982; line-height: 1.7; font-size: .94rem; }
+.team-whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; width: 100%; max-width: 245px; padding: 12px 18px; border-radius: 999px; background: #20b85a; color: #fff; font-weight: 700; text-decoration: none; transition: background .2s ease, transform .2s ease; }
+.team-whatsapp-btn:hover, .team-whatsapp-btn:focus { background: #159447; color: #fff; transform: translateY(-2px); }
+.team-whatsapp-btn i { font-size: 1.15rem; }
+/* RESPONSIVE RULES: قواعد تغيير التخطيط والمقاسات حسب حجم الشاشة */
+@media (max-width: 575.98px) {
+    .team-photo-wrap { height: 205px; }
+    .team-photo { width: 155px; height: 155px; }
+    .team-card-body { padding: 21px 18px 24px; }
+    .team-card p { min-height: 0; }
+}
+.project
+{
+    background-color: #eff7fa;
+}
+.project span
+{
+   color: gold;
+}
+/* FOOTER: تنسيق تذييل الموقع */
+.footer
+{
+    background-color: black;
+}
+.links ul li a {
+    text-decoration: none;
+    color: #7e7e86;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.links ul li a:hover,
+.links ul li a:focus {
+    background-color: gold;
+    color: black;
+}
+
+/* Products page */
+.products-page {
+    min-height: 100vh;
+    background: #f8f8f5;
+}
+.products-page .navbar {
+    background: #f3e69b;
+    padding: 18px 0;
+}
+.products-page .navbar-brand {
+    color: rgb(77, 69, 24);
+    text-decoration: none;
+}
+.products-page .brand-name {
+    font-size: 1.65rem;
+    font-weight: 700;
+}
+.products-header {
+    padding: 75px 0 55px;
+}
+.products-eyebrow {
+    color: #a88900;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.products-header h1 {
+    color: #4d4518;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+/* PRODUCT CARDS: شكل كارت المنتج والصورة والمعلومات */
+.product-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #eee8c9;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(77, 69, 24, .07);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(77, 69, 24, .13);
+}
+.product-image-wrap {
+    height: 235px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: #fff;
+    border-bottom: 1px solid #f1edda;
+}
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.product-info {
+    padding: 20px;
+}
+.product-name {
+    color: #4d4518;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #eee8c9;
+    color: #666;
+}
+.product-price strong {
+    color: #a88900;
+}
+.product-notes h3 {
+    color: #4d4518;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+.product-notes p {
+    color: #777;
+    font-size: .92rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    min-height: 45px;
+}
+.products-footer {
+    color: #cfcfcf;
+    background: #171717;
+}
+@media (max-width: 575.98px) {
+    .products-header { padding: 55px 0 40px; }
+    .product-image-wrap { height: 220px; }
+}
+
+
+/* Keep the homepage products section visible below the fixed navbar. */
+#Home {
+    scroll-margin-top: 105px;
+}
+
+
+/* Footer social contact buttons */
+.footer-social-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-left: 3rem;
+}
+.footer-social-button {
+    width: 250px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: filter .2s ease, transform .2s ease;
+}
+.footer-social-button:hover,
+.footer-social-button:focus {
+    color: #fff;
+    filter: brightness(.92);
+    transform: translateY(-1px);
+}
+.facebook-button { background-color: #1877F2; }
+.whatsapp-button { background-color: #25D366; }
+@media (max-width: 767.98px) {
+    .footer-social-buttons { margin-left: 0; align-items: center; }
+}
+
+
+/* Electrical Man directory tables */
+/* ELECTRICIAN DIRECTORY: جدول دليل الكهربائيين */
+.electrical-directory-section {
+    background: linear-gradient(180deg, #fffdf2 0%, #f7f8fa 100%);
+}
+.directory-heading h1,
+.directory-heading h2 {
+    color: #4d4518;
+    font-weight: 800;
+    margin: 10px 0;
+}
+.directory-heading h1 { font-size: clamp(2rem, 5vw, 2.8rem); }
+.directory-heading h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+.directory-heading p { color: #777; margin-bottom: 0; }
+.directory-kicker {
+    display: inline-block;
+    color: #a88900;
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+.directory-table-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #eee6bf;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(77, 69, 24, .08);
+}
+.electrical-table { min-width: 650px; }
+.electrical-table thead th {
+    padding: 17px 22px;
+    background: #4d4518;
+    color: #fff;
+    border: 0;
+    font-size: .9rem;
+    letter-spacing: .4px;
+}
+.electrical-table tbody td {
+    padding: 16px 22px;
+    color: #555;
+    border-color: #f0eddc;
+    vertical-align: middle;
+}
+.electrical-table tbody tr:nth-child(even) { background: #fffdf4; }
+.electrical-table tbody tr:hover { background: #fff8d9; }
+.person-name { color: #4d4518; font-weight: 700; white-space: nowrap; }
+.person-name i { color: #c5a500; margin-right: 8px; }
+.phone-value { color: #333; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.copy-number {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid #eadb86;
+    border-radius: 20px;
+    background: #fff9dc;
+    color: #75620b;
+    font-size: .76rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: .2s ease;
+}
+.copy-number:hover { background: #f3e69b; }
+.address-icon { color: #c5a500; margin-right: 7px; }
+.directory-order-button {
+    min-width: 190px;
+    padding: 11px 24px;
+    background: #d9b900;
+    color: #3f3813;
+    font-weight: 800;
+    transition: .2s ease;
+}
+.directory-order-button:hover,
+.directory-order-button:focus { background: #4d4518; color: #fff; }
+.directory-navbar { background: #f3e69b; padding: 15px 0; }
+.directory-brand { color: #4d4518; font-size: 1.4rem; font-weight: 800; text-decoration: none; }
+.directory-brand i, .directory-brand span { color: #a88900; }
+.directory-back-link { color: #4d4518; text-decoration: none; font-weight: 700; }
+.directory-back-link:hover { color: #9a7d00; }
+.directory-note { color: #888; font-size: .88rem; }
+#ElectricalMan { scroll-margin-top: 90px; }
+@media (max-width: 575.98px) {
+    .electrical-table thead th, .electrical-table tbody td { padding: 13px 15px; }
+    .directory-brand { font-size: 1.15rem; }
+    .directory-back-link { font-size: .85rem; }
+}
+
+/* Product image preview and download */
+.product-card { cursor: zoom-in; }
+.product-card:focus-visible {
+    outline: 3px solid #d9b900;
+    outline-offset: 4px;
+}
+.image-preview-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px 24px;
+    background: rgba(15, 15, 15, .92);
+}
+.image-preview-modal.is-open { display: flex; }
+.image-preview-content {
+    position: relative;
+    width: min(100%, 1100px);
+    height: 100%;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+.image-preview-modal img {
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-width: 100%;
+    max-height: calc(88vh - 85px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .35);
+}
+.image-preview-actions {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.image-preview-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 10px 24px;
+    border: 0;
+    border-radius: 25px;
+    background: #f3e69b;
+    color: #4d4518;
+    font-weight: 800;
+    cursor: pointer;
+}
+.image-preview-download:hover { background: #e7d36a; }
+.image-preview-download:disabled { opacity: .7; cursor: wait; }
+.image-preview-close {
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    z-index: 100000;
+    width: 48px;
+    height: 48px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #252525;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+.image-preview-close:hover { background: #555; }
+body.image-preview-active { overflow: hidden; }
+@media (max-width: 575.98px) {
+    .image-preview-modal { padding: 76px 12px 18px; }
+    .image-preview-content { max-height: 88vh; }
+    .image-preview-modal img { max-height: calc(88vh - 90px); }
+    .image-preview-close { top: 12px; right: 12px; width: 44px; height: 44px; }
+    .image-preview-download { min-height: 44px; padding: 9px 20px; }
+}
+
+/* ===== Esam Electric storefront experience ===== */
+:root { --ee-gold:#e9bd24; --ee-ink:#25251f; --ee-muted:#74746d; --ee-paper:#fbfaf6; --ee-line:#ece8d8; --ee-shadow:0 14px 38px rgba(38,35,20,.09); }
+html { scroll-behavior:smooth; scroll-padding-top:90px; }
+body { color:var(--ee-ink); }
+.navbar { z-index:1030; box-shadow:0 3px 18px rgba(0,0,0,.06); }
+.navbar .container-fluid { padding-left:clamp(16px,4vw,58px); padding-right:clamp(16px,4vw,58px); }
+.navbar .nav-link { font-weight:600; }
+.samartHome { min-height:460px; padding:100px 20px 55px; background:radial-gradient(circle at 80% 25%,rgba(255,215,75,.28),transparent 30%),linear-gradient(135deg,#f8f6e9,#e9ecef 65%,#f8f2d7)!important; }
+.samartHome h2 { font-size:clamp(2.2rem,6vw,4.5rem); font-weight:800; letter-spacing:-2px; }
+.samartHome h6 { color:#68634a; font-size:1rem; margin:18px 0 24px; }
+.main-btn,.directory-order-button { background:var(--ee-gold)!important; border-color:var(--ee-gold)!important; color:#30290d!important; font-weight:700; transition:transform .2s,box-shadow .2s; }
+.main-btn:hover,.directory-order-button:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(201,160,0,.2); }
+.ee-header-actions { display:flex; align-items:center; gap:9px; margin-left:16px; }
+.ee-header-btn { position:relative; width:42px;height:42px;border:1px solid rgba(77,69,24,.16);border-radius:50%;background:rgba(255,255,255,.75);color:#4d4518;display:grid;place-items:center;font-size:1rem; }
+.ee-header-btn:hover { background:#fff1b8; }
+.ee-header-btn span { position:absolute;right:-5px;top:-5px;min-width:19px;height:19px;padding:0 4px;border-radius:20px;background:#28271f;color:#fff;font-size:11px;display:grid;place-items:center; }
+.ee-catalog-tools { padding-top:42px;padding-bottom:22px; }
+.ee-tools-heading { display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px; }
+.ee-kicker { color:#a88900;font-size:.7rem;font-weight:800;letter-spacing:2px; }
+.ee-tools-heading h2 { color:#37331e;font-size:clamp(1.55rem,3vw,2.15rem);font-weight:800;margin:6px 0; }
+.ee-tools-heading p { color:var(--ee-muted);margin:0; }
+.ee-results-count { color:#777;font-size:.9rem;white-space:nowrap; }
+.ee-tools-row { display:flex;gap:12px;align-items:center; }
+.ee-search-box { display:flex;align-items:center;gap:11px;flex:1;min-width:0;padding:0 15px;height:50px;border:1px solid #e8e3cf;border-radius:12px;background:#fff;color:#8a7b36; }
+.ee-search-box input { width:100%;border:0;outline:0;background:transparent;color:#25251f; }
+.ee-search-box kbd { color:#aaa;font-size:1.1rem; }
+.ee-sort-box { display:flex;align-items:center;gap:8px;height:50px;padding:0 12px;border:1px solid #e8e3cf;border-radius:12px;background:#fff;color:#777;font-size:.85rem; }
+.ee-sort-box select { border:0;outline:0;background:transparent;color:#37331e;font-weight:600; }
+.ee-view-toggle { height:50px;width:50px;border:1px solid #e8e3cf;border-radius:12px;background:#fff;color:#65571d; }
+.ee-category-chips { display:flex;flex-wrap:wrap;gap:9px;margin-top:16px; }
+.ee-chip { border:1px solid #e8e3cf;background:#fff;color:#5f5a46;padding:8px 16px;border-radius:30px;font-size:.88rem;transition:.2s; }
+.ee-chip:hover,.ee-chip.is-active { border-color:#e4bd31;background:#fff3c4;color:#4d3d00; }
+.ee-hidden { display:none!important; }
+.ee-empty-state { padding:55px 15px;text-align:center;color:#777; }.ee-empty-state i {font-size:2rem;color:#c5a322}.ee-empty-state h3 {color:#38351f;margin:12px 0 6px}
+.product-card { height:100%;border:1px solid #eeeadb;border-radius:18px;box-shadow:0 6px 24px rgba(51,45,18,.055);transition:transform .25s,box-shadow .25s; }
+.product-card:hover { transform:translateY(-6px);box-shadow:0 16px 36px rgba(51,45,18,.12); }
+.product-image-wrap { height:245px;background:linear-gradient(145deg,#fff,#faf9f3);padding:18px; }
+.product-image { cursor:zoom-in;transition:transform .3s; }.product-card:hover .product-image {transform:scale(1.035)}
+.product-info { padding:18px 19px 20px; }.product-name { line-height:1.35;min-height:1.6em; }.product-price { margin-top:12px; }.product-notes p { min-height:48px; }
+.ee-product-actions { display:flex;align-items:center;gap:8px;margin-top:17px; }
+.ee-add-cart { flex:1;min-height:42px;border:0;border-radius:10px;background:#29281f;color:#fff;font-weight:700;font-size:.86rem;display:flex;justify-content:center;align-items:center;gap:8px;transition:.2s; }
+.ee-add-cart:hover { background:#b28b0b;color:#fff; }
+.ee-favorite,.ee-edit-product { width:42px;height:42px;border:1px solid #e9e4d3;border-radius:10px;background:#fff;color:#655b39; }
+.ee-favorite.is-favorite { color:#d34c55;background:#fff0f1;border-color:#f5c9cc; }.ee-edit-product { display:none; }.ee-admin-tools.is-open ~ .ee-edit-product { display:block; }
+.ee-list-view { display:flex;flex-direction:column;gap:14px; }.ee-list-view > [class*="col-"] {width:100%;}.ee-list-view .product-card {display:grid;grid-template-columns:minmax(160px,260px) 1fr;}.ee-list-view .product-image-wrap {height:100%;min-height:210px;border:0;border-right:1px solid #f1edda;}.ee-list-view .product-notes p {min-height:0;}
+.ee-toast { position:fixed;z-index:3000;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#26251e;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--ee-shadow);font-size:.9rem;transition:.25s;max-width:calc(100vw - 30px);text-align:center; }.ee-toast.is-visible {opacity:1;transform:translate(-50%,0)}
+.ee-drawer {position:fixed;inset:0;z-index:2500;visibility:hidden;pointer-events:none;}.ee-drawer.is-open {visibility:visible;pointer-events:auto}.ee-drawer-backdrop {position:absolute;inset:0;background:rgba(17,17,13,.48);opacity:0;transition:.25s}.ee-drawer.is-open .ee-drawer-backdrop {opacity:1}.ee-drawer-panel {position:absolute;right:0;top:0;height:100%;width:min(440px,100%);background:#fff;display:flex;flex-direction:column;padding:25px;transform:translateX(105%);transition:transform .28s;box-shadow:-15px 0 40px rgba(0,0,0,.12)}.ee-drawer.is-open .ee-drawer-panel {transform:translateX(0)}
+.ee-drawer-head {display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--ee-line)}.ee-drawer-title {margin:5px 0 0;font-size:1.6rem;font-weight:800;color:#302e22}.ee-drawer-close,.ee-preview-close {width:42px;height:42px;border:0;border-radius:50%;background:#f4f1e6;font-size:1.7rem;line-height:1;color:#38351f}.ee-drawer-items {overflow:auto;flex:1;padding:12px 0}.ee-cart-item {display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #f0eee5}.ee-cart-item img {width:86px;height:86px;object-fit:contain;background:#faf9f5;border-radius:10px}.ee-cart-details {flex:1;min-width:0;display:flex;flex-direction:column;gap:7px}.ee-cart-details strong {color:#33301f}.ee-cart-details>span {font-size:.86rem;color:#777}.ee-quantity {display:flex;align-items:center;gap:13px;margin-top:3px}.ee-quantity button {width:27px;height:27px;border:1px solid #e5dfc8;border-radius:7px;background:#fff}.ee-mini-action {align-self:flex-start;border:0;background:none;color:#967400;padding:3px 0;font-weight:700}.ee-drawer-empty {text-align:center;padding:55px 10px;color:#888}.ee-drawer-empty i {font-size:2.5rem;color:#d4b43a}.ee-drawer-empty h3 {font-size:1.15rem;color:#343124;margin-top:15px}.ee-drawer-footer {border-top:1px solid var(--ee-line);padding-top:17px}.ee-drawer-footer.is-empty {display:none}.ee-drawer-total {display:flex;justify-content:space-between;margin-bottom:14px}.ee-copy-order {width:100%;padding:13px;border:0;border-radius:10px;background:#e8bd28;color:#332b0e;font-weight:800}.ee-clear-cart {width:100%;margin-top:8px;padding:9px;border:1px solid #eee8d5;border-radius:10px;background:#fff;color:#766d54}.ee-drawer-footer p {font-size:.75rem;color:#999;text-align:center;margin:12px 0 0}
+.ee-preview-modal {position:fixed;inset:0;z-index:2600;display:none;align-items:center;justify-content:center;padding:22px}.ee-preview-modal.is-open {display:flex}.ee-preview-backdrop {position:absolute;inset:0;background:rgba(15,15,12,.82);backdrop-filter:blur(5px)}.ee-preview-dialog {position:relative;z-index:1;width:min(1000px,100%);max-height:calc(100dvh - 44px);overflow:auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);background:#fff;border-radius:20px;box-shadow:0 25px 80px rgba(0,0,0,.3)}.ee-preview-close {position:absolute;z-index:3;right:13px;top:13px;width:44px;height:44px;background:#29281f;color:#fff;font-size:1.8rem}.ee-preview-image-wrap {min-height:420px;max-height:calc(100dvh - 44px);display:grid;place-items:center;padding:45px 25px;background:#f8f7f1}.ee-preview-image {display:block;max-width:100%;max-height:calc(100dvh - 145px);width:auto;height:auto;object-fit:contain}.ee-preview-info {padding:55px 28px 28px;display:flex;flex-direction:column;justify-content:center}.ee-preview-name {font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#302e22;margin:10px 0}.ee-preview-description {color:#777;line-height:1.7}.ee-preview-price {font-weight:800;color:#967400;margin:8px 0 20px}.ee-preview-actions {display:grid;gap:10px}.ee-preview-actions button {padding:13px;border-radius:10px;font-weight:700}.ee-preview-download {border:0;background:#e8bd28;color:#332b0e}.ee-preview-cart {border:1px solid #29281f;background:#29281f;color:#fff}
+.ee-admin-tools {position:fixed;z-index:1800;right:18px;bottom:18px}.ee-admin-toggle {border:0;border-radius:30px;background:#28271f;color:#fff;padding:12px 17px;box-shadow:0 8px 25px #0002;font-size:.85rem}.ee-admin-menu {display:none;position:absolute;right:0;bottom:54px;width:260px;padding:16px;background:#fff;border:1px solid #eee8d5;border-radius:14px;box-shadow:var(--ee-shadow)}.ee-admin-tools.is-open .ee-admin-menu {display:grid;gap:9px}.ee-admin-menu p {font-size:.8rem;color:#777;margin:0 0 4px}.ee-admin-menu button {padding:10px;border:1px solid #eee8d5;border-radius:8px;background:#fff;text-align:left;color:#4b452f;font-size:.85rem}.ee-admin-menu .ee-admin-done {text-align:center;background:#29281f;color:#fff}.ee-admin-tools.is-open ~ body .ee-edit-product {display:block}.ee-admin-tools.is-open .ee-admin-toggle {background:#a98208}
+.ee-back-top {position:fixed;right:20px;bottom:85px;z-index:1200;width:43px;height:43px;border:0;border-radius:50%;background:#e8bd28;color:#30290d;box-shadow:0 6px 20px #0002;opacity:0;pointer-events:none;transform:translateY(10px);transition:.2s}.ee-back-top.is-visible {opacity:1;pointer-events:auto;transform:translateY(0)}
+.ee-dark-theme {background:#181914!important;color:#eee!important}.ee-dark-theme .work,.ee-dark-theme .products-page,.ee-dark-theme .ee-catalog-tools {background:#181914!important}.ee-dark-theme .product-card,.ee-dark-theme .ee-search-box,.ee-dark-theme .ee-sort-box,.ee-dark-theme .ee-view-toggle,.ee-dark-theme .ee-chip {background:#24251f;color:#eee;border-color:#3c3b30}.ee-dark-theme .ee-tools-heading h2,.ee-dark-theme .product-name,.ee-dark-theme .product-notes h3 {color:#f4e8b5}.ee-dark-theme .product-notes p,.ee-dark-theme .ee-tools-heading p {color:#bbb}.ee-dark-theme .product-image-wrap {background:#20211b;border-color:#3b392c}.ee-dark-theme .ee-search-box input,.ee-dark-theme .ee-sort-box select {color:#fff}
+body.ee-panel-open {overflow:hidden}
+@media(max-width:767.98px) { .ee-header-actions {margin-left:auto;margin-right:8px}.navbar .container-fluid {flex-wrap:wrap}.ee-tools-heading {align-items:start}.ee-tools-row {flex-wrap:wrap}.ee-search-box {flex-basis:100%}.ee-sort-box {flex:1}.ee-preview-modal {padding:10px}.ee-preview-dialog {grid-template-columns:1fr;max-height:calc(100dvh - 20px);overflow:auto}.ee-preview-image-wrap {min-height:0;height:min(48vh,390px);padding:35px 18px 15px}.ee-preview-image {max-height:calc(48vh - 45px)}.ee-preview-info {padding:20px 22px 22px}.ee-preview-close {right:9px;top:9px;width:40px;height:40px}.ee-list-view .product-card {grid-template-columns:120px 1fr}.ee-list-view .product-image-wrap {min-height:160px;padding:8px}.ee-list-view .product-info {padding:13px}.ee-list-view .product-notes {display:none}.ee-admin-tools {right:12px;bottom:12px}.ee-back-top {right:14px;bottom:75px} }
+@media(max-width:420px) { .ee-header-btn {width:37px;height:37px}.ee-header-actions {gap:6px}.ee-tools-heading h2 {font-size:1.45rem}.ee-results-count {font-size:.75rem}.ee-category-chips {gap:6px}.ee-chip {padding:7px 12px;font-size:.8rem}.ee-preview-actions {grid-template-columns:1fr 1fr}.ee-preview-actions button {font-size:.82rem;padding:11px 7px} }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after {scroll-behavior:auto!important;transition:none!important;animation:none!important} }
+body.ee-admin-mode .ee-edit-product { display:block; }
+.ee-directory-search {display:flex;align-items:center;gap:12px;max-width:620px;margin:0 auto 18px;padding:0 15px;height:48px;background:#fff;border:1px solid #e8e3cf;border-radius:12px;color:#9a7a0b}.ee-directory-search input {flex:1;min-width:0;border:0;outline:0;background:transparent;color:#28271f}.ee-directory-count {font-size:.78rem;color:#999;white-space:nowrap}
+.ee-whatsapp-order {width:100%;margin-top:9px;padding:12px;border:0;border-radius:10px;background:#188b58;color:#fff;font-weight:800}.ee-whatsapp-order:hover {background:#126e45}
+.section1 {height:auto;min-height:400px}
+/* STORE BENEFITS: قسم مميزات المتجر */
+.ee-benefits-section {background:#fffdf6}
+.ee-benefit-card {height:100%;padding:25px 22px;background:#fff;border:1px solid #eee8d5;border-radius:16px;box-shadow:0 8px 25px rgba(51,45,18,.045)}
+.ee-benefit-card>i {width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#fff2bf;color:#987600;font-size:1.15rem;margin-bottom:15px}
+.ee-benefit-card h3 {font-size:1.08rem;font-weight:800;color:#37331e}
+.ee-benefit-card p {margin:0;color:#777;line-height:1.65;font-size:.92rem}
+.ee-admin-tools {display:none}
+.ee-admin-tools.is-enabled {display:block}
+.ee-admin-tools.is-open {display:block}
+
+
+/* حالة زر نسخ رقم الكهربائي بعد نجاح النسخ */
+.copy-number.is-copied { background: #e6f5e9; color: #176b32; border-color: #b8dfc1; }
